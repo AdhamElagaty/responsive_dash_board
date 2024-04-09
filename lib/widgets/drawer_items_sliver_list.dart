@@ -3,16 +3,16 @@ import 'package:responsive_dash_board/models/drawer_item_model.dart';
 import 'package:responsive_dash_board/utils/app_images.dart';
 import 'package:responsive_dash_board/widgets/custom_drawer_item.dart';
 
-class DrawerItemsListView extends StatefulWidget {
-  const DrawerItemsListView({
+class DrawerItemsSliverList extends StatefulWidget {
+  const DrawerItemsSliverList({
     super.key,
   });
 
   @override
-  State<DrawerItemsListView> createState() => _DrawerItemsListViewState();
+  State<DrawerItemsSliverList> createState() => _DrawerItemsSliverListState();
 }
 
-class _DrawerItemsListViewState extends State<DrawerItemsListView> {
+class _DrawerItemsSliverListState extends State<DrawerItemsSliverList> {
   int activeIndex = 0;
   final List<DrawerItemModel> drawerItemModels = const [
     DrawerItemModel(
@@ -39,9 +39,7 @@ class _DrawerItemsListViewState extends State<DrawerItemsListView> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+    return SliverList.builder(
       itemCount: drawerItemModels.length,
       itemBuilder: (context, index) => GestureDetector(
         onTap: () {
